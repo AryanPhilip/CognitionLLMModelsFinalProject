@@ -10,7 +10,7 @@ This repository contains the code and analysis for studying Theory of Mind (ToM)
 - Novel experimental design combining poker scenarios with context swapping controls
 - Analysis of ToM capabilities across different LLM architectures
 - Comprehensive visualization and analysis tools
-- ACL-style paper with detailed methodology and results
+
 
 ## 🚀 Quick Start
 
@@ -67,33 +67,15 @@ python src/setup_experiment.py --setup
 
 Key findings and visualizations are available in the `results/` directory. The paper provides detailed analysis and discussion of the results.
 
-## 📝 Paper
 
-The paper is written in LaTeX and includes:
-- Main paper assembly (`acl_paper_assembly.tex`)
-- Individual sections (methods, results, discussion)
-- Supporting tables and figures
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📚 Citation
 
-If you use this code or data, please cite our paper:
-```
-@article{your-paper-citation}
-```
 
 ## 👥 Authors
 
-- Your Name - Initial work - [Your GitHub](https://github.com/yourusername)
+- Aryan Philip
 
-## 🙏 Acknowledgments
-
-- Thanks to all contributors and reviewers
-- Special thanks to [Your Professor/Advisor] for guidance 
