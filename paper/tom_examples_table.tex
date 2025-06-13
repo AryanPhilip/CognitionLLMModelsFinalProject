@@ -1,0 +1,26 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Examples of Theory of Mind Reasoning in Model Explanations}
+\label{tab:tom_examples}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}p{2cm}p{2.5cm}p{8cm}@{}}
+\toprule
+\textbf{Model} & \textbf{ToM Level} & \textbf{Example Explanation} \\
+\midrule
+Hush-Qwen2.5-7B & Level 2 & \textit{"Given the opponent's history of triple-barreling missed draws, it's likely they are attempting to exploit your hand range with a bluff... doesn't strongly suggest a value bet from a holding like A-Q offsuit, which would typically be more inclined to check or call rather than bet into you."} \\
+\addlinespace
+& Level 1 & \textit{"The opponent enjoys bluffing on such boards where few hands can make a strong draw, making the 2♠ the perfect scare card to extract value from players who might be semi-bluffing."} \\
+\addlinespace
+OLMoE-1B-7B & Level 0-1 & \textit{"The board texture suggests a potential flush draw, and the full pot bet size, it is more likely that this is a value bet rather than a bluff."} \\
+\addlinespace
+Llama-3.2-SUN-1B & Level 0 & \textit{"CLASSITION: Bluf"} (Minimal reasoning, pattern matching only) \\
+\bottomrule
+\end{tabular}%
+}
+\begin{tablenotes}
+\small
+\item Note: Level 0 = Pattern matching, Level 1 = Basic mental state attribution, 
+Level 2 = Recursive reasoning about beliefs and intentions.
+\end{tablenotes}
+\end{table}

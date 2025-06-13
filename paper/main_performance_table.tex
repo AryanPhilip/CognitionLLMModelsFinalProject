@@ -1,0 +1,29 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Model Performance on Poker Deception Detection Task}
+\label{tab:main_results}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Overall} & \textbf{Bluff} & \textbf{Value} & \textbf{Gap} & \textbf{N} & \textbf{Sig.} \\
+ & \textbf{Accuracy} & \textbf{Accuracy} & \textbf{Accuracy} & \textbf{(\%)} & & \\
+\midrule
+Hush-Qwen2.5-7B & 93.3\% & 88.9\% & 97.8\% & 8.9 & 90 & *** \\
+& (88.2--98.5) & & & & & \\
+\addlinespace
+OLMoE-1B-7B & 57.8\% & 35.6\% & 80.0\% & 44.4 & 90 & ns \\
+& (47.6--68.0) & & & & & \\
+\addlinespace
+EXAONE-3.5-2.4B & 44.4\% & 24.4\% & 64.4\% & 40.0 & 90 & ns \\
+& (34.2--54.7) & & & & & \\
+\addlinespace
+Llama-3.2-SUN-1B & 12.2\% & 13.3\% & 11.1\% & -2.2 & 90 & *** \\
+& (5.5--19.0) & & & & & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: 95\% confidence intervals in parentheses. Gap = Value Accuracy - Bluff Accuracy. 
+Significance: *** p < 0.001, ns = not significant.
+\end{tablenotes}
+\end{table}

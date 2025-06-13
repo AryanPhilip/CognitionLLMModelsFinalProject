@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2024}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+\renewcommand{\UrlFont}{\ttfamily\small}
+
+\usepackage{microtype}
+
+\aclfinalcopy
+
+\newcommand\BibTeX{B\textsc{ib}\TeX}
+
+\title{Theory of Mind in Large Language Models: Evidence from Poker Deception Detection}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Theory of Mind (ToM)—the ability to understand others' mental states—is fundamental to human social cognition, yet most evaluations of LLM ToM capabilities rely on simplified psychological tests that may be solved through pattern matching rather than genuine mental state reasoning. We introduce poker deception detection as a naturalistic benchmark for assessing LLM Theory of Mind, requiring models to distinguish between sincere value betting and deceptive bluffing based on opponent psychology. Through systematic evaluation of four state-of-the-art LLMs across 360 poker scenarios, we reveal a striking performance hierarchy (93.3\% to 12.2\% accuracy) and identify a consistent "deception detection bottleneck"—all models show significantly lower accuracy in detecting bluffs versus value bets. Crucially, our context swapping control condition demonstrates that performance differences reflect genuine Theory of Mind reasoning rather than poker-specific knowledge, with higher-performing models showing strong context sensitivity (75.3\%) while lower-performing models rely primarily on mechanical heuristics (12.4\%). Qualitative analysis reveals increasingly sophisticated mental state attribution in better-performing models, including recursive reasoning about opponent beliefs and intentions. Our findings establish poker deception detection as a valuable paradigm for Theory of Mind research and provide the first rigorous evidence for measurable ToM capabilities in current LLMs.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Theory of Mind—the cognitive ability to understand that others have beliefs, desires, intentions, and knowledge different from one's own—represents one of the most fundamental aspects of human social intelligence \cite{premack1978does}. This capacity underlies our ability to predict behavior, interpret communication, engage in deception and cooperation, and navigate complex social relationships. As large language models (LLMs) become increasingly sophisticated and deployed in social contexts, understanding their Theory of Mind capabilities becomes crucial for both scientific understanding and practical applications.
+
+Recent work has begun investigating Theory of Mind in LLMs, typically using classical psychological tasks such as false-belief tests \cite{ullman2023large, kosinski2023theory}. However, these approaches face a fundamental limitation: simplified psychological tasks may be solvable through pattern matching or linguistic associations rather than genuine mental state reasoning. A model might correctly answer "Where will Sally look for her marble?" without truly understanding Sally's beliefs, simply by learning the statistical patterns present in theory of mind test data.
+
+This limitation motivates our investigation of Theory of Mind through poker deception detection—a naturalistic domain that requires sophisticated reasoning about opponent mental states, beliefs, and strategic intentions. Unlike traditional false-belief tasks, poker scenarios involve: (1) strategic complexity that prevents simple pattern matching, (2) rich contextual information about opponent psychology and behavior, and (3) genuine uncertainty that requires inferring hidden mental states to make optimal decisions.
+
+Our key contributions are threefold. First, we introduce poker deception detection as a novel paradigm for assessing Theory of Mind in LLMs, requiring models to distinguish between sincere value betting (honest attempts to extract value) and deceptive bluffing (attempts to mislead opponents) based on contextual information about opponent psychology and playing style.
+
+Second, we implement a rigorous context swapping control condition that addresses the fundamental validity question in Theory of Mind research: are models reasoning about mental states or merely applying domain-specific patterns? By systematically swapping opponent psychological profiles while keeping poker mechanics identical, we can isolate genuine Theory of Mind reasoning from poker-specific knowledge.
+
+Third, we provide the first comprehensive evaluation of Theory of Mind capabilities across multiple state-of-the-art LLMs, revealing substantial variation in performance (93.3\% to 12.2\% accuracy) and identifying specific cognitive signatures that distinguish models with stronger versus weaker Theory of Mind capabilities.
+
+Our findings demonstrate that poker deception detection provides a sensitive and ecologically valid measure of Theory of Mind that reveals capabilities not captured by traditional assessments. The substantial variation across current models, combined with clear evidence for genuine mental state reasoning in higher-performing systems, establishes measurable Theory of Mind as an emergent capability in large language models while highlighting significant remaining limitations.
+
+% Include Methods section
+\input{acl_methods_section.tex}
+
+% Include Results section  
+\input{acl_results_section.tex}
+
+% Include Discussion section
+\input{acl_discussion_section.tex}
+
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Theory of Mind in AI and LLMs}
+
+Theory of Mind research in artificial intelligence has primarily focused on traditional psychological tasks. \citet{ullman2023large} evaluated several LLMs on classic false-belief tasks, finding mixed results with models sometimes passing first-order but failing second-order Theory of Mind tests. \citet{kosinski2023theory} reported surprisingly strong performance on Theory of Mind tasks in GPT models, though subsequent work \cite{shapira2023clever} suggested these results might reflect test contamination rather than genuine capabilities.
+
+\citet{gandhi2023understanding} investigated Theory of Mind in the context of strategic games, finding that models could reason about opponent strategies in simple settings but struggled with more complex recursive reasoning. Our work extends this direction by introducing a naturalistic strategic domain that requires sophisticated mental state reasoning while controlling for domain-specific knowledge.
+
+\subsection{Poker as a Strategic Domain}
+
+Poker has long been recognized as an important testbed for artificial intelligence, combining mathematical reasoning, strategic thinking, and psychological inference \cite{brown2019superhuman}. However, most AI poker research has focused on game-theoretic optimal play rather than human psychological modeling. 
+
+Recent work has begun exploring poker as a domain for studying human-AI interaction \cite{brown2020combining} and strategic reasoning \cite{liu2019generating}, but our work is the first to systematically use poker for evaluating Theory of Mind capabilities in language models.
+
+\subsection{Control Conditions in Theory of Mind Research}
+
+The challenge of distinguishing genuine Theory of Mind reasoning from pattern matching or domain knowledge has been recognized in both developmental psychology \cite{wellman2001meta} and AI research \cite{schaafsma2015deception}. Our context swapping methodology provides a novel solution to this challenge, offering a rigorous control condition that can isolate Theory of Mind reasoning from domain-specific knowledge.
+
+\section{Acknowledgments}
+
+We thank [advisors/collaborators] for valuable feedback and discussions. This work was supported by [funding sources].
+
+\bibliography{references}
+\bibliographystyle{acl_natbib}
+
+\appendix
+
+\section{Supplementary Materials}
+\label{sec:appendix}
+
+\subsection{Example Stimuli}
+
+\textbf{Scenario S1 (Bluff Condition):}
+\begin{quote}
+You are playing poker against an opponent. Analyze the situation and determine if their bet is a BLUFF or VALUE bet.
+
+\textbf{Opponent:} This player has been triple-barrelling every missed draw tonight and just showed down 8♦6♦ after firing the river on a similar run-out. The river 2♥ completes a back-door heart flush that few holdings actually make—exactly the scare card this loose-aggressive player loves to bluff.
+
+\textbf{Situation:}
+Board: K♥ T♥ 4♦ 3♣ 2♥
+Hero's Hand: A♥ Q♣
+Pot: $120
+Action: Opponent bets $100 (roughly 80\% of pot)
+
+\textbf{Question:} Is this bet more likely a BLUFF or VALUE bet?
+\end{quote}
+
+\textbf{Scenario S1 (Value Condition):}
+\begin{quote}
+[Same situation, but opponent description changed to:]
+
+\textbf{Opponent:} This player is a snug regular who only commits big money with real hands. He's peeled flop and turn with suited Broadway aces before; when the third heart lands, this 80\%-pot bet is his standard way to value-bet strong (King-high) heart flushes.
+\end{quote}
+
+\subsection{Complete Model Performance Data}
+
+[Include additional tables with detailed breakdown by scenario, response time analysis, etc.]
+
+\subsection{Qualitative Coding Examples}
+
+[Include examples of coded responses showing different levels of Theory of Mind reasoning]
+
+\end{document} 

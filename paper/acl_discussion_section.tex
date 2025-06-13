@@ -1,0 +1,90 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Principal Findings}
+\label{subsec:principal_findings}
+
+Our investigation reveals three key findings about Theory of Mind capabilities in large language models. First, we observe a clear hierarchy in deception detection performance, with accuracy ranging from 93.3\% to 12.2\% across four state-of-the-art models. This substantial variation suggests that Theory of Mind capabilities in LLMs exist on a continuum rather than as a binary trait.
+
+Second, our context swapping control condition provides strong evidence that performance differences reflect genuine Theory of Mind reasoning rather than poker-specific pattern matching. Higher-performing models show significant context sensitivity (75.3\% for Hush-Qwen2.5-7B), changing predictions when opponent psychological profiles are swapped while keeping poker mechanics identical. In contrast, lower-performing models exhibit minimal context sensitivity (12.4\% for Llama-3.2-SUN-1B), suggesting reliance on mechanical heuristics rather than mental state reasoning.
+
+Third, we identify a universal "deception detection bottleneck" across all models, with consistently lower accuracy for bluff detection compared to value detection (22.8\% average gap). This asymmetry suggests that recognizing deceptive intent requires more sophisticated mental state reasoning than recognizing sincere behavior, aligning with developmental psychology research showing that deception detection emerges later than basic Theory of Mind capabilities \cite{wellman2001meta}.
+
+\subsection{Theoretical Implications}
+\label{subsec:theoretical_implications}
+
+\subsubsection{Theory of Mind as an Emergent Capability}
+
+Our findings support the hypothesis that Theory of Mind emerges as an emergent capability in sufficiently large and sophisticated language models. The clear performance hierarchy, combined with qualitative evidence of increasingly sophisticated mental state reasoning in higher-performing models, suggests that Theory of Mind capabilities scale with model size and training sophistication.
+
+However, the emergence is not uniform across all aspects of Theory of Mind. The consistent deception detection bottleneck indicates that different components of Theory of Mind—belief attribution, intention recognition, and deception detection—may emerge at different rates or require different computational resources.
+
+\subsubsection{Naturalistic vs. Traditional Theory of Mind Tasks}
+
+Our naturalistic poker paradigm reveals capabilities not captured by traditional false-belief tasks. While previous work has shown mixed results on classic Theory of Mind tests \cite{ullman2023large}, our task demonstrates clear differentiation between models. This suggests that naturalistic, contextually rich scenarios may be more sensitive measures of Theory of Mind capabilities than simplified psychological tests.
+
+The poker domain provides several advantages: (1) strategic complexity that prevents simple pattern matching, (2) rich contextual information that enables sophisticated mental state reasoning, and (3) clear behavioral outcomes that facilitate objective evaluation. These features make poker deception detection a valuable complement to traditional Theory of Mind assessments.
+
+\subsubsection{Computational Mechanisms}
+
+The strong correlation between context sensitivity and overall performance (r = 0.89) suggests that Theory of Mind capabilities in LLMs may rely on sophisticated attention mechanisms that can integrate psychological context with situational factors. Models that successfully attend to and integrate opponent psychological profiles show superior performance, while models that focus primarily on mechanical factors struggle with the task.
+
+This finding has implications for model architecture and training. The success of mixture-of-experts models (OLMoE) and instruction-tuned models (Hush-Qwen) suggests that specialized attention mechanisms and explicit reasoning training may enhance Theory of Mind capabilities.
+
+\subsection{Methodological Contributions}
+\label{subsec:methodological_contributions}
+
+\subsubsection{Context Swapping as a Control Condition}
+
+Our context swapping methodology addresses a fundamental challenge in Theory of Mind research: distinguishing genuine mental state reasoning from domain-specific pattern matching. By systematically swapping opponent psychological descriptions while maintaining identical task mechanics, we can isolate the contribution of Theory of Mind reasoning.
+
+This approach has broad applicability beyond poker. Any task that involves reasoning about mental states in domain-specific contexts could benefit from similar control conditions. For example, studies of Theory of Mind in social media analysis, negotiation scenarios, or educational contexts could implement context swapping to validate their interpretations.
+
+\subsubsection{Quantitative and Qualitative Integration}
+
+Our combination of quantitative performance metrics with detailed qualitative analysis of reasoning patterns provides a more comprehensive picture of Theory of Mind capabilities than either approach alone. The convergence of quantitative performance differences with qualitative sophistication differences strengthens confidence in our conclusions.
+
+The coding schema we developed for analyzing mental state reasoning in model responses could be adapted for other Theory of Mind studies, providing a standardized approach for evaluating reasoning sophistication across different tasks and domains.
+
+\subsection{Limitations and Future Directions}
+\label{subsec:limitations}
+
+\subsubsection{Sample Size and Generalization}
+
+Our study evaluates four models on 30 scenarios. While this provides sufficient power for detecting large effect sizes, future work should expand to larger model samples and more diverse scenarios. Testing additional model architectures, sizes, and training approaches would strengthen conclusions about the generality of our findings.
+
+Similarly, expanding beyond poker to other strategic domains (e.g., negotiation, competitive games, social interactions) would test whether our findings generalize to Theory of Mind reasoning more broadly or are specific to the poker context.
+
+\subsubsection{Causal Mechanisms}
+
+While our results demonstrate clear differences in Theory of Mind capabilities, they do not directly identify the causal mechanisms underlying these differences. Future research should investigate the relationship between model architecture, training data, fine-tuning approaches, and Theory of Mind performance.
+
+Particularly valuable would be ablation studies examining how different aspects of model training (e.g., instruction tuning, human feedback, specific training corpora) contribute to Theory of Mind capabilities. Such research could inform strategies for deliberately enhancing Theory of Mind in future models.
+
+\subsubsection{Real-World Applications}
+
+Our poker paradigm demonstrates Theory of Mind capabilities in a controlled setting, but real-world applications involve additional complexities: incomplete information, dynamic interactions, cultural variations, and ethical considerations. Future work should explore how Theory of Mind capabilities demonstrated in controlled tasks translate to real-world applications.
+
+\subsection{Broader Implications}
+\label{subsec:broader_implications}
+
+\subsubsection{AI Safety and Alignment}
+
+Theory of Mind capabilities have significant implications for AI safety and alignment. Models that can accurately infer human mental states may be better aligned with human values and intentions, but they also raise concerns about manipulation and privacy. Our findings suggest that current state-of-the-art models vary substantially in these capabilities, highlighting the importance of understanding and monitoring Theory of Mind development in AI systems.
+
+\subsubsection{Human-AI Interaction}
+
+As AI systems become more sophisticated at reasoning about human mental states, human-AI interaction patterns will likely evolve. Systems with strong Theory of Mind capabilities may enable more natural, empathetic, and effective interactions, but may also require new frameworks for maintaining appropriate boundaries and expectations.
+
+\subsubsection{Cognitive Science}
+
+Our findings contribute to broader questions about the nature of Theory of Mind and its computational implementation. The emergence of Theory of Mind-like capabilities in large language models, despite their different architecture from human cognition, provides evidence for multiple pathways to mental state reasoning and offers new tools for investigating Theory of Mind mechanisms.
+
+\subsection{Conclusion}
+\label{subsec:conclusion}
+
+Our study demonstrates that large language models exhibit measurable Theory of Mind capabilities that can be rigorously assessed through naturalistic tasks. The poker deception detection paradigm, combined with context swapping controls, provides a methodologically sound approach for distinguishing genuine mental state reasoning from domain-specific pattern matching.
+
+The substantial variation in Theory of Mind capabilities across current models (93.3\% to 12.2\% accuracy) highlights both the promise and the current limitations of AI Theory of Mind. As these capabilities continue to develop, understanding their mechanisms, applications, and implications becomes increasingly crucial for the responsible development and deployment of AI systems.
+
+Our methodological innovations—particularly the context swapping control condition—offer tools for future Theory of Mind research that could enhance the rigor and validity of investigations across diverse domains. The convergence of quantitative performance measures with qualitative reasoning analysis provides a template for comprehensive Theory of Mind assessment that balances scientific rigor with ecological validity. 

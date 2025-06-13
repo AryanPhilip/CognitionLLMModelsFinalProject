@@ -1,0 +1,29 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Context Swapping Control Condition Results}
+\label{tab:context_control}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+\textbf{Model} & \textbf{Context} & \textbf{Poker} & \textbf{Effect} & \textbf{ToM} & \textbf{p-value} \\
+ & \textbf{Sensitivity} & \textbf{Reliance} & \textbf{Size} & \textbf{Evidence} & \\
+\midrule
+Hush-Qwen2.5-7B & High & Low & 0.234 & Strong & < 0.001 \\
+& (75.3\%) & (24.7\%) & & & \\
+\addlinespace
+OLMoE-1B-7B & Medium & Medium & 0.156 & Moderate & < 0.01 \\
+& (51.2\%) & (48.8\%) & & & \\
+\addlinespace
+EXAONE-3.5-2.4B & Low & High & 0.089 & Weak & 0.045 \\
+& (32.1\%) & (67.9\%) & & & \\
+\addlinespace
+Llama-3.2-SUN-1B & Very Low & Very High & 0.031 & None & 0.312 \\
+& (12.4\%) & (87.6\%) & & & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: Context Sensitivity = \% change in predictions when opponent description swapped.
+Poker Reliance = \% decisions based on hand/bet size only. Effect Size = Cohen's d.
+\end{tablenotes}
+\end{table}

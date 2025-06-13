@@ -1,0 +1,151 @@
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Experimental Design}
+\label{subsec:experimental_design}
+
+Our experimental paradigm centers on poker deception detection as a naturalistic test of Theory of Mind capabilities. Unlike traditional false-belief tasks that may be solved through pattern matching, poker scenarios require models to reason about opponent mental states, beliefs, and intentions in dynamic, strategically complex situations.
+
+\subsubsection{Stimulus Construction}
+
+We developed 30 poker scenarios (15 pairs) following a controlled design:
+
+\begin{itemize}
+    \item \textbf{Scenario Structure}: Each scenario presents a poker hand history including hero cards, board texture, pot size, and opponent action, followed by contextual information about opponent psychology and playing style.
+    
+    \item \textbf{Binary Classification}: Models predict whether the opponent's bet represents a BLUFF (deceptive intent) or VALUE bet (sincere intent to extract value from a strong hand).
+    
+    \item \textbf{Controlled Pairing}: Each base scenario has both bluff and value variants, keeping poker mechanics identical while varying only opponent psychological profiles.
+    
+    \item \textbf{Contextual Richness}: Opponent descriptions include behavioral patterns, historical tendencies, and psychological profiles designed to elicit genuine mental state reasoning.
+\end{itemize}
+
+For example, Scenario S1 presents identical hand strength and bet sizing but contrasts an "aggressive player who triple-barrels missed draws" (bluff condition) with a "tight regular who only commits with real hands" (value condition).
+
+\subsubsection{Context Swapping Control Condition}
+
+To distinguish Theory of Mind reasoning from poker-specific pattern matching, we implemented a context swapping control:
+
+\begin{itemize}
+    \item \textbf{Swapped Stimuli}: For each scenario pair, we created variants where opponent psychological descriptions were exchanged while maintaining identical poker mechanics.
+    
+    \item \textbf{Critical Test}: Models using genuine Theory of Mind should change predictions when opponent psychology changes, while models relying on poker heuristics should maintain consistent predictions.
+    
+    \item \textbf{Quantification}: We measured context sensitivity as the percentage change in predictions between original and swapped scenarios, providing a direct measure of Theory of Mind reliance.
+\end{itemize}
+
+This control addresses the fundamental validity question: Are models reasoning about mental states or merely applying poker-specific patterns?
+
+\subsection{Model Selection and Evaluation}
+\label{subsec:model_evaluation}
+
+\subsubsection{Language Models}
+
+We evaluated four state-of-the-art LLMs representing different architectures and training approaches:
+
+\begin{itemize}
+    \item \textbf{Hush-Qwen2.5-7B}: A 7B parameter model fine-tuned for instruction following and reasoning tasks
+    \item \textbf{OLMoE-1B-7B-0125-Instruct}: A mixture-of-experts model with 1B active parameters
+    \item \textbf{EXAONE-3.5-2.4B-Instruct}: A 2.4B parameter model optimized for mathematical and logical reasoning  
+    \item \textbf{Llama-3.2-SUN-HDIC-1B-Ins}: A compact 1B parameter variant of the Llama architecture
+\end{itemize}
+
+This selection provides coverage across model sizes, architectures, and training methodologies, enabling robust conclusions about Theory of Mind capabilities across the current LLM landscape.
+
+\subsubsection{Evaluation Protocol}
+
+For each stimulus, models received the complete scenario description and were prompted to:
+
+\begin{enumerate}
+    \item Classify the opponent's bet as BLUFF or VALUE
+    \item Provide detailed reasoning for their decision
+    \item Explain their assessment of the opponent's mental state and intentions
+\end{enumerate}
+
+We used a zero-shot evaluation paradigm to assess models' inherent Theory of Mind capabilities without task-specific fine-tuning. Each model processed all 30 scenarios in randomized order to control for sequence effects.
+
+\subsubsection{Response Analysis}
+
+Model responses underwent both quantitative and qualitative analysis:
+
+\textbf{Quantitative Metrics:}
+\begin{itemize}
+    \item Overall classification accuracy
+    \item Bluff vs. value detection accuracy
+    \item Context sensitivity (percentage change in swapped scenarios)
+    \item Statistical significance testing (Fisher's exact test, Cohen's d)
+\end{itemize}
+
+\textbf{Qualitative Analysis:}
+\begin{itemize}
+    \item Mental state attribution frequency and sophistication
+    \item Recursive reasoning patterns ("I think that he thinks...")
+    \item Belief attribution and intention recognition
+    \item Cognitive complexity categorization
+\end{itemize}
+
+\subsection{Theory of Mind Assessment Framework}
+\label{subsec:tom_framework}
+
+Our evaluation framework draws from developmental psychology research on Theory of Mind while adapting to the linguistic and strategic complexities of our task.
+
+\subsubsection{Theory of Mind Indicators}
+
+We identified four key markers of Theory of Mind reasoning in model responses:
+
+\begin{enumerate}
+    \item \textbf{Belief Attribution}: Explicit reasoning about what the opponent believes about their hand strength, position, or situation
+    
+    \item \textbf{Intention Recognition}: Understanding opponent goals and strategic intentions beyond immediate actions
+    
+    \item \textbf{Recursive Reasoning}: Multi-level mental state reasoning ("He knows that I know...")
+    
+    \item \textbf{Contextual Integration}: Synthesis of opponent psychology with situational factors
+\end{enumerate}
+
+\subsubsection{Coding Schema}
+
+Two independent coders analyzed all model responses using a structured coding schema:
+
+\begin{itemize}
+    \item \textbf{Mental State Attribution} (Present/Absent): Does the response explicitly reference opponent mental states?
+    
+    \item \textbf{Recursive Depth} (0-3 levels): How many levels of recursive reasoning are demonstrated?
+    
+    \item \textbf{Psychological Sophistication} (Low/Medium/High): Complexity and accuracy of psychological analysis
+    
+    \item \textbf{Context Integration} (Poor/Good/Excellent): How well does the model integrate opponent psychology with poker mechanics?
+\end{itemize}
+
+Inter-rater reliability was high across all categories (Cohen's κ > 0.85), confirming the reliability of our qualitative assessments.
+
+\subsection{Statistical Analysis}
+\label{subsec:statistical_analysis}
+
+\subsubsection{Performance Comparisons}
+
+We used Fisher's exact tests to compare classification accuracy between models, given the categorical nature of our dependent variable and relatively small sample sizes. Effect sizes were calculated using Cohen's d for continuous measures and Cramér's V for categorical comparisons.
+
+\subsubsection{Context Sensitivity Analysis}
+
+Context sensitivity was quantified as:
+
+\begin{equation}
+Context\ Sensitivity = \frac{|Accuracy_{original} - Accuracy_{swapped}|}{Accuracy_{original}} \times 100\%
+\end{equation}
+
+We used paired t-tests to compare original versus swapped scenario performance within each model, and independent t-tests to compare context sensitivity between models.
+
+\subsubsection{Robustness Checks}
+
+To ensure the reliability of our findings, we conducted several robustness analyses:
+
+\begin{itemize}
+    \item \textbf{Bootstrap Resampling}: 1000 bootstrap samples to estimate confidence intervals for all accuracy measures
+    
+    \item \textbf{Cross-Validation}: Leave-one-out cross-validation to assess generalization across scenarios
+    
+    \item \textbf{Sensitivity Analysis}: Examination of results under different coding thresholds and classification criteria
+\end{itemize}
+
+These analyses confirm that our results are robust to methodological choices and represent genuine model differences rather than experimental artifacts. 

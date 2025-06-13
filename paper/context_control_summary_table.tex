@@ -1,0 +1,30 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Context Swapping Control: Summary of Test Logic}
+\label{tab:control_logic}
+\begin{tabular}{@{}p{3cm}p{5cm}p{5cm}@{}}
+\toprule
+\textbf{Component} & \textbf{Theory of Mind Model} & \textbf{Poker Knowledge Model} \\
+\midrule
+\textbf{Context} & Uses opponent psychological & Ignores opponent psychology, \\
+\textbf{Sensitivity} & profile to guide predictions & focuses on hand/bet mechanics \\
+\addlinespace
+\textbf{Expected} & Predictions flip when context & Predictions remain consistent \\
+\textbf{Behavior} & is swapped (high sensitivity) & despite context swap (low sensitivity) \\
+\addlinespace
+\textbf{Statistical} & Large effect size (Cohen's d > 0.5) & Small effect size (Cohen's d < 0.2) \\
+\textbf{Signature} & High variance in swapped scenarios & Low variance in swapped scenarios \\
+\addlinespace
+\textbf{Example} & S1\_Bluff (Aggressive) → BLUFF & S1\_Bluff → BLUFF (ignores swap) \\
+\textbf{Predictions} & S1\_Bluff\_Swapped (Conservative) → VALUE & S1\_Bluff\_Swapped → BLUFF \\
+\addlinespace
+\textbf{Interpretation} & Evidence of mental state reasoning & Evidence of pattern matching only \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: This control condition isolates the contribution of opponent psychology
+vs. poker-specific knowledge in model decision-making.
+\end{tablenotes}
+\end{table}
